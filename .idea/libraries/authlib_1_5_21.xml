@@ -1,0 +1,42 @@
+<component name="libraryTable">
+  <library name="authlib-1.5.21">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/authlib-1.5.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/realms-1.7.59.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/librarylwjglopenal-20100824.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/commons-io-2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/twitch-external-platform-4.5-natives-windows-64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/libraryjavasound-20101123.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/soundsystem-20120107.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/lwjgl-platform-2.9.4-nightly-20150209-natives-windows.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/netty-all-4.0.23.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/jinput-2.0.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/lwjgl-2.9.4-nightly-20150209.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/log4j-api-2.0-beta9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/codecwav-20101023.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/jopt-simple-4.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/jutils-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/icu4j-core-mojang-51.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/gson-2.2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/commons-logging-1.1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/httpclient-4.3.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/httpcore-4.3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/platform-3.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/commons-codec-1.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/guava-17.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/jna-3.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/lwjgl_util-2.9.4-nightly-20150209.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/commons-lang3-3.3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/twitch-6.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/jinput-platform-2.0.5-natives-windows.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/twitch-platform-6.5-natives-windows-64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/log4j-core-2.0-beta9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/codecjorbis-20101023.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/oshi-core-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/commons-compress-1.8.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries in one folder yay/netty-1.7.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
