@@ -1,17 +1,24 @@
 package crystal.client.mod;
 
+import net.minecraft.client.Minecraft;
+
 public class Mod {
 
     public String name;
     public String description;
     public ModCategory category;
 
+    protected Minecraft mc = Minecraft.getMinecraft();
+
     public boolean enabled;
 
-    public Mod(String name, String description, ModCategory category) {
+    public Mod(String name, ModCategory category) {
         this.name = name;
-        this.description = description;
         this.category = category;
+
+        if(this.description == null) {
+            this.description = "";
+        }
     }
 
     public void toggle() {
@@ -36,6 +43,10 @@ public class Mod {
 
     public String getDescription() {
         return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getName() {
