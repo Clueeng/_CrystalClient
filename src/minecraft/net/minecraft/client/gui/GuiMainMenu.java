@@ -10,6 +10,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import crystal.client.Client;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -32,6 +34,7 @@ import org.apache.logging.log4j.Logger;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GLContext;
 import org.lwjgl.util.glu.Project;
+import org.newdawn.slick.Color;
 
 public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
 {
@@ -575,6 +578,7 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
         this.drawString(this.fontRendererObj, s, 2, this.height - 10, -1);
         String s1 = "Copyright Mojang AB. Do not distribute!";
         this.drawString(this.fontRendererObj, s1, this.width - this.fontRendererObj.getStringWidth(s1) - 2, this.height - 10, -1);
+        //Client.getCrystal().font.renderString(s1, this.width - Client.getCrystal().font.getStringWidth(s1) - 2, this.height - 10, Color.white);
 
         if (this.openGLWarning1 != null && this.openGLWarning1.length() > 0)
         {
