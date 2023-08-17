@@ -1,0 +1,4 @@
+# Ignore .sh, .class, and .bat files
+*.sh
+*.class
+*.bat
