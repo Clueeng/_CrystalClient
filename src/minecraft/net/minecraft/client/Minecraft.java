@@ -35,6 +35,8 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
 import javax.imageio.ImageIO;
+
+import crystal.client.Client;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.audio.MusicTicker;
@@ -568,6 +570,8 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         this.checkGLError("Post startup");
         this.ingameGUI = new GuiIngame(this);
 
+        Client.getCrystal().startup();
+
         if (this.serverName != null)
         {
             this.displayGuiScreen(new GuiConnecting(new GuiMainMenu(), this, this.serverName, this.serverPort));
@@ -1050,6 +1054,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     {
         try
         {
+            Client.getCrystal().shutdown();
             this.stream.shutdownStream();
             logger.info("Stopping!");
 

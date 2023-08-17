@@ -6,11 +6,19 @@ public class Client {
     private static Client crystal;
 
     public Client() {
-        this.name = name;
-        this.version = version;
+        this.name = "Crystal";
+        this.version = "Dev";
     }
 
     public static Client getCrystal() {
         return crystal == null ? crystal = new Client() : crystal;
+    }
+
+    public void startup() {
+
+    }
+
+    public void shutdown() {
+
     }
 }
