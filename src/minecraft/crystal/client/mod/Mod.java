@@ -1,6 +1,10 @@
 package crystal.client.mod;
 
+import crystal.client.files.ModFileSystem;
 import net.minecraft.client.Minecraft;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Mod {
 
@@ -16,8 +20,14 @@ public class Mod {
         this.name = name;
         this.category = category;
 
-        if(this.description == null) {
-            this.description = "";
+        this.description = "";
+
+        if(ModFileSystem.getProperties() == null || !(ModFileSystem.getProperties().containsKey(name))) {
+            Map<String, Object> properties = new HashMap<String, Object>();
+            properties.put("enabled", false);
+
+            ModFileSystem.addProperty(name, properties);
+            System.out.println("Added properties for mod: " + name);
         }
     }
 
@@ -53,7 +63,7 @@ public class Mod {
         return name;
     }
 
-    enum ModCategory {
+    public enum ModCategory {
         HUD,
         SERVER,
         MECHANIC,

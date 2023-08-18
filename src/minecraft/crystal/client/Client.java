@@ -1,5 +1,7 @@
 package crystal.client;
 
+import crystal.client.files.ModFileSystem;
+import crystal.client.mod.ModManager;
 import crystal.client.utils.font.CrystalFontRenderer;
 import crystal.client.utils.font.FontUtil;
 import net.minecraft.util.ResourceLocation;
@@ -14,6 +16,8 @@ public class Client {
 
     public CrystalFontRenderer regular11_5;
     public CrystalFontRenderer regular16;
+
+    public ModManager modManager;
 
     public HashMap<Float, CrystalFontRenderer> fontSizeToFontRenderer;
 
@@ -34,6 +38,8 @@ public class Client {
                 true
         );
         this.regular16 = regular11_5.derive(Font.PLAIN, 16);
+        ModFileSystem.initialise();
+        this.modManager = new ModManager();
 
         fontSizeToFontRenderer.put(11.5F, regular11_5);
         fontSizeToFontRenderer.put(16F, regular16);
