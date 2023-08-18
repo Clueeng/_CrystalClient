@@ -1,9 +1,9 @@
 {
   "Test": {
     "color": "#ffffff",
-    "x": 475.0,
+    "x": 888.0,
     "scale": 1.0,
-    "y": 524.0,
+    "y": 17.0,
     "enabled": false
   }
 }
