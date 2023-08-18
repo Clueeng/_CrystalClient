@@ -5,5 +5,17 @@
     "scale": 1.0,
     "y": 17.0,
     "enabled": false
+  },
+  "Armour Status": {
+    "color": "#ffffff",
+    "showDurability": true,
+    "showBoots": true,
+    "x": 6.0,
+    "showChestplate": true,
+    "y": 9.0,
+    "scale": 1.0,
+    "showHelmet": true,
+    "showLeggings": true,
+    "enabled": false
   }
 }

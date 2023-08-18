@@ -373,6 +373,29 @@ public class RenderItem implements IResourceManagerReloadListener
         this.textureManager.getTexture(TextureMap.locationBlocksTexture).restoreLastBlurMipmap();
     }
 
+    public void renderItemIntoGUI(ItemStack stack, double x, double y)
+    {
+        IBakedModel ibakedmodel = this.itemModelMesher.getItemModel(stack);
+        GlStateManager.pushMatrix();
+        this.textureManager.bindTexture(TextureMap.locationBlocksTexture);
+        this.textureManager.getTexture(TextureMap.locationBlocksTexture).setBlurMipmap(false, false);
+        GlStateManager.enableRescaleNormal();
+        GlStateManager.enableAlpha();
+        GlStateManager.alphaFunc(516, 0.1F);
+        GlStateManager.enableBlend();
+        GlStateManager.blendFunc(770, 771);
+        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+        this.setupGuiTransform(x, y, ibakedmodel.isGui3d());
+        ibakedmodel.getItemCameraTransforms().applyTransform(ItemCameraTransforms.TransformType.GUI);
+        this.renderItem(stack, ibakedmodel);
+        GlStateManager.disableAlpha();
+        GlStateManager.disableRescaleNormal();
+        GlStateManager.disableLighting();
+        GlStateManager.popMatrix();
+        this.textureManager.bindTexture(TextureMap.locationBlocksTexture);
+        this.textureManager.getTexture(TextureMap.locationBlocksTexture).restoreLastBlurMipmap();
+    }
+
     private void setupGuiTransform(int xPosition, int yPosition, boolean isGui3d)
     {
         GlStateManager.translate((float)xPosition, (float)yPosition, 100.0F + this.zLevel);
@@ -395,7 +418,78 @@ public class RenderItem implements IResourceManagerReloadListener
         }
     }
 
+    private void setupGuiTransform(double xPosition, double yPosition, boolean isGui3d)
+    {
+        GlStateManager.translate((float)xPosition, (float)yPosition, 100.0F + this.zLevel);
+        GlStateManager.translate(8.0F, 8.0F, 0.0F);
+        GlStateManager.scale(1.0F, 1.0F, -1.0F);
+        GlStateManager.scale(0.5F, 0.5F, 0.5F);
+
+        if (isGui3d)
+        {
+            GlStateManager.scale(40.0F, 40.0F, 40.0F);
+            GlStateManager.rotate(210.0F, 1.0F, 0.0F, 0.0F);
+            GlStateManager.rotate(-135.0F, 0.0F, 1.0F, 0.0F);
+            GlStateManager.enableLighting();
+        }
+        else
+        {
+            GlStateManager.scale(64.0F, 64.0F, 64.0F);
+            GlStateManager.rotate(180.0F, 1.0F, 0.0F, 0.0F);
+            GlStateManager.disableLighting();
+        }
+    }
+
     public void renderItemAndEffectIntoGUI(final ItemStack stack, int xPosition, int yPosition)
+    {
+        if (stack != null && stack.getItem() != null)
+        {
+            this.zLevel += 50.0F;
+
+            try
+            {
+                this.renderItemIntoGUI(stack, xPosition, yPosition);
+            }
+            catch (Throwable throwable)
+            {
+                CrashReport crashreport = CrashReport.makeCrashReport(throwable, "Rendering item");
+                CrashReportCategory crashreportcategory = crashreport.makeCategory("Item being rendered");
+                crashreportcategory.addCrashSectionCallable("Item Type", new Callable<String>()
+                {
+                    public String call() throws Exception
+                    {
+                        return String.valueOf((Object)stack.getItem());
+                    }
+                });
+                crashreportcategory.addCrashSectionCallable("Item Aux", new Callable<String>()
+                {
+                    public String call() throws Exception
+                    {
+                        return String.valueOf(stack.getMetadata());
+                    }
+                });
+                crashreportcategory.addCrashSectionCallable("Item NBT", new Callable<String>()
+                {
+                    public String call() throws Exception
+                    {
+                        return String.valueOf((Object)stack.getTagCompound());
+                    }
+                });
+                crashreportcategory.addCrashSectionCallable("Item Foil", new Callable<String>()
+                {
+                    public String call() throws Exception
+                    {
+                        return String.valueOf(stack.hasEffect());
+                    }
+                });
+                throw new ReportedException(crashreport);
+            }
+
+            this.zLevel -= 50.0F;
+        }
+    }
+
+    public void renderItemAndEffectIntoGUI(final ItemStack stack, double xPosition, double yPosition)
     {
         if (stack != null && stack.getItem() != null)
         {

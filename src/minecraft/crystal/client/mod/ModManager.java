@@ -14,6 +14,7 @@ public class ModManager {
         this.mods = new ArrayList<>();
         this.mods.add(new TestMod());
         this.mods.add(new ModFPS());
+        this.mods.add(new ModArmourStatus());
     }
 
     public ArrayList<Mod> getMods() {

@@ -7,8 +7,8 @@ import net.minecraft.client.Minecraft;
 public class ModFPS extends DraggableMod {
 
     public ModFPS() {
-        super("Test", ModCategory.MISC);
-        setDescription("A test mod used for testing purposes");
+        super("Test", ModCategory.HUD);
+        setDescription("Displays your FPS count on the screen.");
         setEnabled(true);
     }
 
