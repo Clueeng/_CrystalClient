@@ -28,14 +28,24 @@ public class Mod {
 
             ModFileSystem.addProperty(name, properties);
             System.out.println("Added properties for mod: " + name);
+        } else {
+            HashMap<String, Object> myProperties = ModFileSystem.getProperties().get(name);
+            this.enabled = (boolean) myProperties.get("enabled");
         }
     }
 
     public void toggle() {
-         this.enabled = !this.enabled;
+        this.enabled = !this.enabled;
+
         if(enabled) {
+            Map<String, Object> properties = new HashMap<String, Object>();
+            properties.put("enabled", true);
+            ModFileSystem.addProperty(name, properties);
             onEnable();
         } else {
+            Map<String, Object> properties = new HashMap<String, Object>();
+            properties.put("enabled", false);
+            ModFileSystem.addProperty(name, properties);
             onDisable();
         }
     }
@@ -57,6 +67,10 @@ public class Mod {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     public String getName() {

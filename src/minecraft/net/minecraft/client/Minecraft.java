@@ -3130,6 +3130,8 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         {
             if (!(this.currentScreen instanceof GuiControls) || ((GuiControls)this.currentScreen).time <= getSystemTime() - 20L)
             {
+                Client.getCrystal().onKey(i);
+
                 if (Keyboard.getEventKeyState())
                 {
                     if (i == this.gameSettings.keyBindStreamStartStop.getKeyCode())

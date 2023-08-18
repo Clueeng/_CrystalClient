@@ -6,6 +6,10 @@ import com.google.common.collect.Lists;
 import java.util.Collection;
 import java.util.List;
 import java.util.Random;
+
+import crystal.client.Client;
+import crystal.client.hud.HUDGui;
+import crystal.client.mod.DraggableMod;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -213,6 +217,10 @@ public class GuiIngame extends Gui
 
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
         int k1 = i / 2 - 91;
+
+        if(!(Minecraft.getMinecraft().currentScreen instanceof HUDGui)) {
+            Client.getCrystal().modManager.getEnabledDraggableMods().forEach(DraggableMod::render);
+        }
 
         if (this.mc.thePlayer.isRidingHorse())
         {

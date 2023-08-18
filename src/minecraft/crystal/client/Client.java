@@ -1,10 +1,13 @@
 package crystal.client;
 
 import crystal.client.files.ModFileSystem;
+import crystal.client.hud.HUDGui;
 import crystal.client.mod.ModManager;
 import crystal.client.utils.font.CrystalFontRenderer;
 import crystal.client.utils.font.FontUtil;
+import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.input.Keyboard;
 
 import java.awt.*;
 import java.util.HashMap;
@@ -18,6 +21,7 @@ public class Client {
     public CrystalFontRenderer regular16;
 
     public ModManager modManager;
+    public HUDGui hudGui;
 
     public HashMap<Float, CrystalFontRenderer> fontSizeToFontRenderer;
 
@@ -39,7 +43,9 @@ public class Client {
         );
         this.regular16 = regular11_5.derive(Font.PLAIN, 16);
         ModFileSystem.initialise();
+
         this.modManager = new ModManager();
+        this.hudGui = new HUDGui();
 
         fontSizeToFontRenderer.put(11.5F, regular11_5);
         fontSizeToFontRenderer.put(16F, regular16);
@@ -54,6 +60,12 @@ public class Client {
             CrystalFontRenderer crystalFontRenderer = regular11_5.derive(0, fontSize);
             fontSizeToFontRenderer.put(fontSize, crystalFontRenderer);
             return crystalFontRenderer;
+        }
+    }
+
+    public void onKey(int key) {
+        if(key == Keyboard.KEY_RSHIFT) {
+            Minecraft.getMinecraft().displayGuiScreen(hudGui);
         }
     }
 

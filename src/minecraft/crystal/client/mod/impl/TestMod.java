@@ -9,6 +9,7 @@ public class TestMod extends DraggableMod {
     public TestMod() {
         super("Test", ModCategory.MISC);
         setDescription("A test mod used for testing purposes");
+        setEnabled(true);
     }
 
     @Override
