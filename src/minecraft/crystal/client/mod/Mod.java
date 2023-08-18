@@ -37,13 +37,12 @@ public class Mod {
     public void toggle() {
         this.enabled = !this.enabled;
 
+        Map<String, Object> properties = new HashMap<>();
         if(enabled) {
-            Map<String, Object> properties = new HashMap<String, Object>();
             properties.put("enabled", true);
             ModFileSystem.addProperty(name, properties);
             onEnable();
         } else {
-            Map<String, Object> properties = new HashMap<String, Object>();
             properties.put("enabled", false);
             ModFileSystem.addProperty(name, properties);
             onDisable();

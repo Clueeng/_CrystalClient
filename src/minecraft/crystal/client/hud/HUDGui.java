@@ -6,10 +6,9 @@ import crystal.client.utils.gui.CrystalGui;
 import net.minecraft.client.gui.GuiScreen;
 
 import java.awt.*;
-import java.util.List;
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
-import java.util.function.Predicate;
 
 // GUI for moving de mods
 public class HUDGui extends GuiScreen {

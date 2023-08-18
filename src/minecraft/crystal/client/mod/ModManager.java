@@ -13,6 +13,7 @@ public class ModManager {
     public ModManager() {
         this.mods = new ArrayList<>();
         this.mods.add(new TestMod());
+        this.mods.add(new ModFPS());
     }
 
     public ArrayList<Mod> getMods() {
